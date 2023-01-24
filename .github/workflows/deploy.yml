@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout 
-      Default: https://github.com/maazgora/mysqlcd.git
+      uses: actions/checkout
 
     # Setup gcloud CLI
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
@@ -31,7 +30,7 @@ jobs:
         gcloud builds submit --tag gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_APPLICATION }}
         gcloud config set run/region us-central1
       
-    # Deploy the Docker image to the GKE cluster
+    # Deploy the Docker image to the GKE clusters
     - name: Deploy
       run: |
         gcloud run deploy ${{ secrets.GCP_APPLICATION }} --image gcr.io/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_APPLICATION }} \
