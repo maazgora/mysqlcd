@@ -8,8 +8,8 @@ jobs:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout
     - name: Checkout
+      uses: actions/checkout
       
 
     # Setup gcloud CLI
